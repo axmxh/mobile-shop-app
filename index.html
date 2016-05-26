@@ -1,1 +1,35 @@
-
+<!DOCTYPE html>
+<html ng-app="shopModule">
+	<head>
+		<title>Mobile Shop</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-2.2.3.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+	<body>
+		<h2>Mobile Shop Application</h2> 
+		<input class="btn btn-default" type="button" value="Add New Mobile">
+		<div ng-controller="mobiles">
+			<table class="table table-hover" style="width: 50%">
+				<thead>
+					<tr>
+						<th>Brand</th>
+						<th>Model</th>
+						<th>Year</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="mobile in mobiles">
+						<td>{{ mobile.brand }}</td>
+						<td>{{ mobile.model }}</td>
+						<td>{{ mobile.year }}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+	</body>
+</html>

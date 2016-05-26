@@ -1,0 +1,12 @@
+body{
+	font-family: monospace, sans-serif;
+	padding-left: 20px;
+}
+input,h2{
+	display: inline-block;
+	padding: 20px;
+}
+
+table{
+	width: 50%;
+}
