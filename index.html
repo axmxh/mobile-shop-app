@@ -11,9 +11,27 @@
 	</head>
 	<body>
 		<h2>Mobile Shop Application</h2> 
+		
 		<input class="btn btn-default" type="button" value="Add New Mobile"/>
+		
 		<div ng-controller="mobiles">
-			Model : <input type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
+			<div ng-controller="search">
+				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch"/>
+				Brand : <select ng-model="brandSearch">
+							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }} {{$index}}</option>
+						</select>
+						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
+			</div>
+				
+				
+				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch"/>
+				Brand : <select ng-model="brandSearch">
+							<option ng-repeat="mobile in mobiles" value="{{ mobile.brand }}">{{ mobile.brand }} {{$index}}</option>
+						</select>
+						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
+
+
+	
 			<table class="table table-hover" style="width: 50%">
 				<thead>
 					<tr>
@@ -23,7 +41,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="mobile in mobiles | filter:modelSearch">
+					<tr ng-repeat="mobile in mobiles | filter:brandSearch | filter:modelSearch ">
 						<td>{{ mobile.brand }}</td>
 						<td>{{ mobile.model }}</td>
 						<td>{{ mobile.year }}</td>
