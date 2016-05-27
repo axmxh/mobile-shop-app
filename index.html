@@ -40,7 +40,7 @@
 			</table>
 			
 			<div ng-hide="showDetails"> 
-				<ul ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand">
+				<ul ng-repeat="mobile in mobiles | filter:tempModel1 | filter:tempBrand1">
 					- {{ mobile.brand }} {{ mobile.model }} -
 					<li>{{ "Year : " + mobile.year }}</li>
 					<li>{{ "Memory Size : " +  mobile.memory + "GB"}}</li>
@@ -54,8 +54,9 @@
 			</div>
 			<div id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
-				Model  <input type="text" placeholder="Model" ng-model="addModel"><br>
-				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear"><br> 
+				<form id="formID" ng-submit="save()">
+				Model  <input type="text" placeholder="Model" ng-model="addModel" required><br>
+				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear" required><br> 
 				Brand <select ng-model="addBrand">
 							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 						</select><br> 
@@ -80,7 +81,8 @@
 					   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
 					   
 				<input type="button" value="Back" ng-click="back()">
-				<input type="button" value="Save" ng-click="save()">
+				<input type="submit"  value="Save">
+				</form>
 			</div>
 		</div>
 	</body>
