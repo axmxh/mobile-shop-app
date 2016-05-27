@@ -41,6 +41,19 @@
 				</tbody>
 			</table>
 			
+			<div ng-hide="showDetails"> 
+				<ul ng-repeat="mobile in mobiles | filter:tempModel">
+					- {{ mobile.brand }} {{ mobile.model }} -
+					<li>{{ "Year : " + mobile.year }}</li>
+					<li>{{ "Memory Size : " +  mobile.memory + "GB"}}</li>
+					<li>{{ "Color : " +  mobile.color }}</li>
+					<li>{{ "SIM : " +  mobile.sim }}</li>
+					<li>{{ "Network : " +  mobile.network }}</li>
+					<li>{{ "Screen Size : " +  mobile.screen + '"' }}</li>
+
+				</ul>
+			</div>
+			
 		</div>
 	</body>
 </html>
