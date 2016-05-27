@@ -42,7 +42,7 @@
 			</table>
 			
 			<div ng-hide="showDetails"> 
-				<ul ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand"">
+				<ul ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand">
 					- {{ mobile.brand }} {{ mobile.model }} -
 					<li>{{ "Year : " + mobile.year }}</li>
 					<li>{{ "Memory Size : " +  mobile.memory + "GB"}}</li>
