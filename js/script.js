@@ -24,11 +24,10 @@ var mobileShop = angular
 						brand = $scope.brandSearch;
 						$scope.tempModel = model;
 						$scope.tempBrand = brand;
-						//alert($scope.temp);	
-						//return $scope.modelSearch;
-						//$scope.clear();
-						
 
+						if(brand != ""){
+							$scope.showDetails = false;
+						}
 						
 					};
 					
@@ -36,17 +35,21 @@ var mobileShop = angular
 					$scope.clear = function(){
 						$scope.tempModel = "";
 						$scope.tempBrand = "";
+						$scope.showDetails = true;
 					};
 					
 					
+/*
 					$scope.setSelected = function(){
 						$scope.setSelected = function() {
 					        $scope.selected = this.mobile;       
 					        //return $scope.selected
 					        //alert($scope.showDetails);
-					        $scope.showDetails = false;
+						    $scope.showDetails = false;
+					        
 					    };
 					};
+*/
 					
 				});
 				
