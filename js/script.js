@@ -26,13 +26,7 @@ var mobileShop = angular
 						brand = $scope.brandSearch;
 						$scope.tempModel = model;
 						$scope.tempBrand = brand;
-
-/*
-						if(brand != ""){
-				 			$scope.showDetails = false;
-						}
-*/
-						
+			
 					};
 					
 					// Clear for Next search
@@ -81,30 +75,3 @@ var mobileShop = angular
 				});
 				
 				
-/*
-				
-$(document).ready(function(){
-    $("#addNew").click(function(){
-        $("#content").hide();	    
-        $("#addScreen").show();
-        
-    });
-});	
-*/		
-
-
-// D3 script goes here
-
-/*
-var yearCount = function(){
-    sum = 0;
-    for(i=0;i<mobiles.length;i++){
-	    if(mobiles[i].year == 2013){
-			sum++;
-    	}
-    }
-    retuen sum;
-};
-*/
-
-
