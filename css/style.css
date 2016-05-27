@@ -1,5 +1,5 @@
 body{
-	background-color: #dcf3f3;
+	background-color: #e7f6f6;
 	font-family: monospace, sans-serif;
 	padding-left: 10%;
 }
@@ -20,3 +20,19 @@ table{
 	padding-bottom: 70px;
 }
 
+svg{
+	position: absolute;
+	left : 65%;
+	background: #d4d4f2;
+	width: 400px;
+	height: 200px;
+}
+
+.chart rect {
+    fill: steelblue;
+  }
+  
+ #details{
+	 position: absolute;
+	 top: 300px;
+ }

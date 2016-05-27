@@ -1,3 +1,4 @@
+
 var mobiles = [
 				{brand: "Sony" ,model: "Xperia L" , year:2013 ,memory:16 , color:"Gold" , sim:"Yes" ,nfc:"Yes" ,network:"4G" ,screen:5 },
 				{brand: "Samsung" ,model: "Note 3" , year:2014 ,memory:32 , color:"Black" , sim:"Yes" ,nfc:false ,network:"3G" ,screen:6},
@@ -90,3 +91,20 @@ $(document).ready(function(){
     });
 });	
 */		
+
+
+// D3 script goes here
+
+/*
+var yearCount = function(){
+    sum = 0;
+    for(i=0;i<mobiles.length;i++){
+	    if(mobiles[i].year == 2013){
+			sum++;
+    	}
+    }
+    retuen sum;
+};
+*/
+
+
