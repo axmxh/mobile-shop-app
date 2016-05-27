@@ -67,7 +67,7 @@ var mobileShop = angular
 							network:$scope.add4G ? "4G" : "3G",
 							screen:$scope.addScreen
 						})
-						//$scope.back();
+						$scope.back();
 					};
 					
 					$scope.showAddScreen = function(){
@@ -80,4 +80,13 @@ var mobileShop = angular
 				});
 				
 				
+/*
 				
+$(document).ready(function(){
+    $("#addNew").click(function(){
+        $("#content").hide();	    
+        $("#addScreen").show();
+        
+    });
+});	
+*/		

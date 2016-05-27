@@ -11,17 +11,22 @@
 	</head>
 	<body  ng-controller="mobiles">
 		<h2>Mobile Shop Application</h2> 
-		
-		<input class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
-		
-		<div>
-				
-				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
-				Brand : <select ng-model="brandSearch.brand" ng-click="clear()">
-							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
-						</select>
-						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
 	
+		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
+		<div id="content">	
+		<div class="form-group">
+				<div class="col-sm-3">
+					Model : <input class="form-control" type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
+				</div>
+				<div class="col-sm-3">
+					Brand : <select class="form-control" ng-model="brandSearch.brand" ng-click="clear()">
+								<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
+							</select>
+				</div>
+				<div class="col-sm-3">
+					<br><input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
+				</div>
+		</div>
 			<table class="table table-hover" style="width: 50%">
 				<thead>
 					<tr>
@@ -52,36 +57,48 @@
 
 				</ul>
 			</div>
-			<div id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
+	</div>
+			<div class="form-group" id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
 				<form id="formID" ng-submit="save()">
-				Model  <input type="text" placeholder="Model" ng-model="addModel" required><br>
-				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear" required pattern="\d{4}"><br> 
-				Brand <select ng-model="addBrand">
-							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
-						</select><br> 
-						
-				Memory <select ng-model="addMemory">
-							<option value="16">16</option>
-							<option value="32">32</option>
-							<option value="64">64</option>
-							<option value="128">128</option>
-						</select><br>
-						
-				<input type="checkbox" name="options" value="dual" ng-model="addDual" checked>Dual SIM<br>
-				<input type="checkbox" name="options" value="nfc" ng-model="addNfc" checked>NFC<br>
-				<input type="checkbox" name="options" value="4G" ng-model="add4G" checked>4G<br>
-				
-				Screen <br><input type="radio" name="screen" value="4" ng-model="addScreen" checked> 4"<br>
-					   <input type="radio" name="screen" value="5" ng-model="addScreen"> 5"<br>
-					   <input type="radio" name="screen" value="6" ng-model="addScreen"> 6"<br>
-					   
-				Color <br><input type="radio" name="color" value="white" ng-model="addColor" checked> White<br>
-					   <input type="radio" name="color" value="gold" ng-model="addColor"> Gold<br>
-					   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
-					   
-				<input type="button" value="Back" ng-click="back()">
-				<input type="submit"  value="Save">
+					<div class="col-sm-6">
+						Model  <input type="text" class="form-control" placeholder="Model" ng-model="addModel" required><br>
+					</div>
+					<div class="col-sm-6">
+						Manufacture Year  <input type="text" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"><br> 
+					</div>
+					<div class="col-sm-6">
+						Brand <select class="form-control" ng-model="addBrand">
+									<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
+							  </select><br> 
+					</div>
+					<div class="col-sm-6">						
+						Memory <select class="form-control" ng-model="addMemory">
+									<option value="16">16</option>
+									<option value="32">32</option>
+									<option value="64">64</option>
+									<option value="128">128</option>
+								</select><br>
+					</div>
+					<div class="col-sm-3">						
+						<input type="checkbox" name="options" value="dual" ng-model="addDual" checked>Dual SIM<br>
+						<input type="checkbox" name="options" value="nfc" ng-model="addNfc" checked>NFC<br>
+						<input type="checkbox" name="options" value="4G" ng-model="add4G" checked>4G<br>
+					</div>
+					<div class="col-sm-3">							
+						Screen <br><input type="radio" name="screen" value="4" ng-model="addScreen" checked> 4"<br>
+							   <input type="radio" name="screen" value="5" ng-model="addScreen"> 5"<br>
+							   <input type="radio" name="screen" value="6" ng-model="addScreen"> 6"<br>
+					</div>
+					<div class="col-sm-3">							
+						Color <br><input type="radio" name="color" value="white" ng-model="addColor" checked> White<br>
+							   <input type="radio" name="color" value="gold" ng-model="addColor"> Gold<br>
+							   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
+					</div>	
+					<div class="col-sm-3">		   
+						<input class="form-control" type="button" value="Back" ng-click="back()">
+						<input class="form-control" type="submit"  value="Save">
+					</div>
 				</form>
 			</div>
 		</div>
