@@ -17,6 +17,7 @@ var mobileShop = angular
 				.controller("mobiles",function($scope){					
 					$scope.mobiles = mobiles;
 					$scope.showDetails = true;
+					$scope.addScreenStatus = false;
 					// Search 					
 
 					$scope.search = function(){
@@ -49,8 +50,28 @@ var mobileShop = angular
 					        
 					    };
 					};
-*/
+*/					//$scope.addBrand = "";
+					$scope.save = function(){
+						$scope.mobiles.push({
+							brand:$scope.addBrand,
+							model: $scope.addModel,
+							year:$scope.addYear,
+							memory:16,
+							color:$scope.addColor,
+							sim:$scope.addDual ? "Yes" : "No",
+							nfc:$scope.addNfc ? "Yes" : "No",
+							network:$scope.add4G ? "4G" : "3G",
+							screen:$scope.addScreen
+						})
+					};
 					
+					$scope.showAddScreen = function(){
+						$scope.addScreenStatus = true;
+					}
+					
+					$scope.back = function(){
+						$scope.addScreenStatus = false;
+					}
 				});
 				
 				

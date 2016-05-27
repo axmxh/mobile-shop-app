@@ -9,12 +9,12 @@
 		<script src="js/angular.min.js"></script>
 		<script src="js/script.js"></script>
 	</head>
-	<body>
+	<body  ng-controller="mobiles">
 		<h2>Mobile Shop Application</h2> 
 		
-		<input class="btn btn-default" type="button" value="Add New Mobile"/>
+		<input class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
 		
-		<div ng-controller="mobiles">
+		<div>
 				
 				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
 				Brand : <select ng-model="brandSearch.brand" ng-click="clear()">
@@ -48,40 +48,41 @@
 					<li>{{ "Memory Size : " +  mobile.memory + "GB"}}</li>
 					<li>{{ "Color : " +  mobile.color }}</li>
 					<li>{{ "Dual SIM : " +  mobile.sim }}</li>
+					<li>{{ "NFC : " +  mobile.nfc }}</li>
 					<li>{{ "Network : " +  mobile.network }}</li>
 					<li>{{ "Screen Size : " +  mobile.screen + '"' }}</li>
 
 				</ul>
 			</div>
-			<div>
+			<div ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
-				Model  <input type="text" placeholder="Model"><br>
-				Manufacture Year  <input type="text" placeholder="Year"><br> 
-				Brand <select>
+				Model  <input type="text" placeholder="Model" ng-model="addModel"><br>
+				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear"><br> 
+				Brand <select ng-model="addBrand">
 							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 						</select><br> 
 						
-				Memory <select>
+				Memory <select ng-model="addMemory">
 							<option value="16">16</option>
 							<option value="32">32</option>
 							<option value="64">64</option>
 							<option value="128">128</option>
 						</select><br>
 						
-				<input type="checkbox" name="options" value="dual" checked>Dual SIM<br>
-				<input type="checkbox" name="options" value="nfc" checked>NFC<br>
-				<input type="checkbox" name="options" value="4G" checked>4G<br>
+				<input type="checkbox" name="options" value="dual" ng-model="addDual" checked>Dual SIM<br>
+				<input type="checkbox" name="options" value="nfc" ng-model="addNfc" checked>NFC<br>
+				<input type="checkbox" name="options" value="4G" ng-model="add4G" checked>4G<br>
 				
-				Screen <br><input type="radio" name="screen" value="four" checked> 4"<br>
-					   <input type="radio" name="screen" value="five"> 5"<br>
-					   <input type="radio" name="screen" value="six"> 6"<br>
+				Screen <br><input type="radio" name="screen" value="4" ng-model="addScreen" checked> 4"<br>
+					   <input type="radio" name="screen" value="5" ng-model="addScreen"> 5"<br>
+					   <input type="radio" name="screen" value="6" ng-model="addScreen"> 6"<br>
 					   
-				Color <br><input type="radio" name="screen" value="white" checked> White<br>
-					   <input type="radio" name="screen" value="gold"> Gold<br>
-					   <input type="radio" name="screen" value="black"> Black<br>
+				Color <br><input type="radio" name="color" value="white" ng-model="addColor" checked> White<br>
+					   <input type="radio" name="color" value="gold" ng-model="addColor"> Gold<br>
+					   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
 					   
-				<input type="button" value="Back">
-				<input type="button" value="Save">
+				<input type="button" value="Back" ng-click="back()">
+				<input type="button" value="Save" ng-click="save()">
 			</div>
 		</div>
 	</body>
