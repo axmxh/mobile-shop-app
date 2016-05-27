@@ -26,9 +26,11 @@ var mobileShop = angular
 						$scope.tempModel = model;
 						$scope.tempBrand = brand;
 
+/*
 						if(brand != ""){
-							$scope.showDetails = false;
+				 			$scope.showDetails = false;
 						}
+*/
 						
 					};
 					
@@ -40,17 +42,19 @@ var mobileShop = angular
 					};
 					
 					
-/*
+
 					$scope.setSelected = function(){
 						$scope.setSelected = function() {
 					        $scope.selected = this.mobile;       
 					        //return $scope.selected
 					        //alert($scope.showDetails);
+					        $scope.tempModel1 =$scope.tempModel;
+					        $scope.tempBrand1 =$scope.tempBrand;
 						    $scope.showDetails = false;
 					        
 					    };
 					};
-*/					//$scope.addBrand = "";
+					//$scope.addBrand = "";
 					$scope.save = function(){
 						$scope.mobiles.push({
 							brand:$scope.addBrand,
@@ -63,7 +67,7 @@ var mobileShop = angular
 							network:$scope.add4G ? "4G" : "3G",
 							screen:$scope.addScreen
 						})
-						$scope.back();
+						//$scope.back();
 					};
 					
 					$scope.showAddScreen = function(){
@@ -74,5 +78,6 @@ var mobileShop = angular
 						$scope.addScreenStatus = false;
 					}
 				});
+				
 				
 				
