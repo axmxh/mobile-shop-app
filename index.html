@@ -15,18 +15,10 @@
 		<input class="btn btn-default" type="button" value="Add New Mobile"/>
 		
 		<div ng-controller="mobiles">
-			<div ng-controller="search">
-				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch"/>
-				Brand : <select ng-model="brandSearch">
-							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }} {{$index}}</option>
-						</select>
-						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
-			</div>
 				
-				
-				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch"/>
-				Brand : <select ng-model="brandSearch">
-							<option ng-repeat="mobile in mobiles" value="{{ mobile.brand }}">{{ mobile.brand }} {{$index}}</option>
+				Model : <input type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
+				Brand : <select ng-model="brandSearch.brand" ng-click="clear()">
+							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 						</select>
 						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
 
@@ -41,7 +33,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="mobile in mobiles | filter:brandSearch | filter:modelSearch ">
+					<tr ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand ">
 						<td>{{ mobile.brand }}</td>
 						<td>{{ mobile.model }}</td>
 						<td>{{ mobile.year }}</td>

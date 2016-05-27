@@ -17,23 +17,23 @@ var mobileShop = angular
 				.controller("mobiles",function($scope){					
 					$scope.mobiles = mobiles;
 					
-						$scope.modelSearch = "";
-					$scope.brandSearch = "";
-					$scope.search = function(model,brand){
+					// Search 					
+
+					$scope.search = function(){
 						model = $scope.modelSearch;
 						brand = $scope.brandSearch;
-						alert(model + " " + brand);	
+						$scope.tempModel = model;
+						$scope.tempBrand = brand;
+						//alert($scope.temp);	
+						//return $scope.modelSearch;
+						//$scope.clear();
 					}
-				})
+					
+					// Clear for Next search
+					$scope.clear = function(){
+						$scope.tempModel = "";
+						$scope.tempBrand = "";
+					}
+				});
 				
-				.controller("search", function($scope){
-/*
-					$scope.modelSearch = "";
-					$scope.brandSearch = "";
-					$scope.search = function(model,brand){
-						model = $scope.modelSearch;
-						brand = $scope.brandSearch;
-						alert(model + " " + brand);	
-					}
-*/
-				})
+				
