@@ -27,13 +27,20 @@ var mobileShop = angular
 						//alert($scope.temp);	
 						//return $scope.modelSearch;
 						//$scope.clear();
-					}
+					};
 					
 					// Clear for Next search
 					$scope.clear = function(){
 						$scope.tempModel = "";
 						$scope.tempBrand = "";
-					}
+					};
+					
+					$scope.setSelected = function(){
+						$scope.setSelected = function() {
+					        $scope.selected = this.mobile;
+					        //alert(this.mobile.brand);
+					    };
+					};
 				});
 				
 				

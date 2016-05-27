@@ -33,7 +33,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand ">
+					<tr ng-repeat="mobile in mobiles | filter:tempModel | filter:tempBrand" ng-click="setSelected()">
 						<td>{{ mobile.brand }}</td>
 						<td>{{ mobile.model }}</td>
 						<td>{{ mobile.year }}</td>
