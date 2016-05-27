@@ -20,7 +20,7 @@ table{
 	padding-bottom: 70px;
 }
 
-svg{
+#bar{
 	position: absolute;
 	left : 65%;
 	background: #d4d4f2;
@@ -36,3 +36,16 @@ svg{
 	 position: absolute;
 	 top: 300px;
  }
+ 
+ .slice text {
+    font-family: Droid Sans;
+}
+
+div #chart{
+	position: absolute;
+	top: 350px;
+	background: none;
+	left : 70%;
+	width: 250px;
+	height: 250px;
+}
