@@ -4,6 +4,7 @@
 		<title>Mobile Shop</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
+		<script src="js/d3.min.js"></script>
 		<script src="js/jquery-2.2.3.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/angular.min.js"></script>
@@ -44,7 +45,7 @@
 				</tbody>
 			</table>
 			
-			<div ng-hide="showDetails"> 
+			<div id="details" ng-hide="showDetails"> 
 				<ul ng-repeat="mobile in mobiles | filter:tempModel1 | filter:tempBrand1">
 					- {{ mobile.brand }} {{ mobile.model }} -
 					<li>{{ "Year : " + mobile.year }}</li>
@@ -102,5 +103,83 @@
 				</form>
 			</div>
 		</div>
+		<div id="d3">
+				bar chart
+				<svg class="chart">
+				</svg>
+				<script>
+					y2012 = 4;
+					y2013 = 0;
+					y2014 = 0;
+					y2015 = 0;
+					y2016 = 0;
+						for(i=0;i<mobiles.length;i++){
+					       if(mobiles[i].year == 2012){
+						   	y2012++ ;
+						   }
+					   }
+					   for(i=0;i<mobiles.length;i++){
+					       if(mobiles[i].year == 2013){
+						   	y2013++ ;
+						   }
+					   }
+					   for(i=0;i<mobiles.length;i++){
+					   	if(mobiles[i].year == 2014){
+						   	y2014++  ;
+						   }
+						} 
+						
+						for(i=0;i<mobiles.length;i++){
+					       if(mobiles[i].year == 2015){
+						   	y2015++ ;
+						   }
+					   }
+					   for(i=0;i<mobiles.length;i++){
+					   	if(mobiles[i].year == 2016){
+						   	y2016++  ;
+						   }
+						}           
+					
+						var scale = {
+						  y: d3.scale.linear()
+						};
+						
+						var totalWidth = 500;
+						var totalHeight = 200;
+						
+						scale.y.domain([0, 10]);
+						scale.y.range([totalHeight, 0]);
+						
+						var ages = [y2012, y2013, y2014, y2015, y2016];
+						var barWidth = 80;
+						
+						var chart = d3.select('.chart')
+						    .attr({
+						        'width': totalWidth,
+						        'height': totalHeight
+						    });
+						
+						var bars = chart
+						    .selectAll('g')
+						    .data(ages)
+						    .enter()
+						    .append('g');
+						
+						bars.append('rect')
+						    .attr({
+						        'x': function (d, i) {
+						            return i * barWidth;
+						        },
+						        'y': scale.y,
+						        'height': function (d) {
+						            return totalHeight - scale.y(d);
+						        },
+						        'width': barWidth - 1
+						    });
+						    
+
+						    
+					</script>		
+			</div>
 	</body>
 </html>
