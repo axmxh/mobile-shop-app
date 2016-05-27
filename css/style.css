@@ -1,6 +1,7 @@
 body{
+	background-color: #dcf3f3;
 	font-family: monospace, sans-serif;
-	padding-left: 20px;
+	padding-left: 10%;
 }
 input,h2{
 	display: inline-block;
@@ -9,5 +10,13 @@ input,h2{
 
 table{
 	width: 50%;
+	position: absolute;
+	margin-top: 70px;
+}
+
+#addScreen{
+	position: absolute;
+	top : 600px;
+	padding-bottom: 70px;
 }
 
