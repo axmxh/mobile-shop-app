@@ -21,8 +21,6 @@
 							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 						</select>
 						<input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
-
-
 	
 			<table class="table table-hover" style="width: 50%">
 				<thead>
@@ -54,7 +52,7 @@
 
 				</ul>
 			</div>
-			<div ng-model="addScreen" ng-show="addScreenStatus">
+			<div id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
 				Model  <input type="text" placeholder="Model" ng-model="addModel"><br>
 				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear"><br> 
