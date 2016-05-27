@@ -56,7 +56,7 @@
 				<h2>Add Mobile</h2><br>
 				<form id="formID" ng-submit="save()">
 				Model  <input type="text" placeholder="Model" ng-model="addModel" required><br>
-				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear" required><br> 
+				Manufacture Year  <input type="text" placeholder="Year" ng-model="addYear" required pattern="\d{4}"><br> 
 				Brand <select ng-model="addBrand">
 							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 						</select><br> 
