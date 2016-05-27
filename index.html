@@ -47,13 +47,42 @@
 					<li>{{ "Year : " + mobile.year }}</li>
 					<li>{{ "Memory Size : " +  mobile.memory + "GB"}}</li>
 					<li>{{ "Color : " +  mobile.color }}</li>
-					<li>{{ "SIM : " +  mobile.sim }}</li>
+					<li>{{ "Dual SIM : " +  mobile.sim }}</li>
 					<li>{{ "Network : " +  mobile.network }}</li>
 					<li>{{ "Screen Size : " +  mobile.screen + '"' }}</li>
 
 				</ul>
 			</div>
-			
+			<div>
+				<h2>Add Mobile</h2><br>
+				Model  <input type="text" placeholder="Model"><br>
+				Manufacture Year  <input type="text" placeholder="Year"><br> 
+				Brand <select>
+							<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
+						</select><br> 
+						
+				Memory <select>
+							<option value="16">16</option>
+							<option value="32">32</option>
+							<option value="64">64</option>
+							<option value="128">128</option>
+						</select><br>
+						
+				<input type="checkbox" name="options" value="dual" checked>Dual SIM<br>
+				<input type="checkbox" name="options" value="nfc" checked>NFC<br>
+				<input type="checkbox" name="options" value="4G" checked>4G<br>
+				
+				Screen <br><input type="radio" name="screen" value="four" checked> 4"<br>
+					   <input type="radio" name="screen" value="five"> 5"<br>
+					   <input type="radio" name="screen" value="six"> 6"<br>
+					   
+				Color <br><input type="radio" name="screen" value="white" checked> White<br>
+					   <input type="radio" name="screen" value="gold"> Gold<br>
+					   <input type="radio" name="screen" value="black"> Black<br>
+					   
+				<input type="button" value="Back">
+				<input type="button" value="Save">
+			</div>
 		</div>
 	</body>
 </html>
