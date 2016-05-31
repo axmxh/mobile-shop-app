@@ -67,11 +67,29 @@ var mobileShop = angular
 					
 					$scope.showAddScreen = function(){
 						$scope.addScreenStatus = true;
-					}
+					};
 					
 					$scope.back = function(){
 						$scope.addScreenStatus = false;
-					}
+					};
+					
+					$scope.checkModel = function(){
+						if($scope.addModel == undefined || $scope.addModel == ""){
+							return false;
+						}
+						else{
+							return true;
+						}							
+					};
+					
+					$scope.checkYear = function(){
+						if($scope.addYear == undefined || $scope.addYear == ""){
+							return false;
+						}
+						else{
+							return true;
+						}							
+					};
 				});
 				
 				
