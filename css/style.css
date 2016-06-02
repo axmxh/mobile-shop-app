@@ -49,3 +49,7 @@ div #chart{
 	width: 250px;
 	height: 250px;
 }
+
+.col-sm-3 {
+	padding-bottom: 10px;
+}

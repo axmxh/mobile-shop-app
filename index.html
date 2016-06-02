@@ -8,26 +8,27 @@
 		<script src="js/jquery-2.2.3.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 	<body  ng-controller="mobiles">
 		<h2>Mobile Shop Application</h2> 
-	
-		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
+		<a href="#/addmobile"><button class="btn btn-default">New Mobile - Templates</button></a>
+		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()" disabled/>
 		<div id="content">	
-		<div class="form-group">
-				<div class="col-sm-3">
-					Model : <input class="form-control" type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
-				</div>
-				<div class="col-sm-3">
-					Brand : <select class="form-control" ng-model="brandSearch.brand" ng-click="clear()">
-								<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
-							</select>
-				</div>
-				<div class="col-sm-3">
-					<br><input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
-				</div>
-		</div>
+			<div class="form-group">
+					<div class="col-sm-3">
+						Model : <input class="form-control" type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
+					</div>
+					<div class="col-sm-3">
+						Brand : <select class="form-control" ng-model="brandSearch.brand" ng-click="clear()">
+									<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
+								</select>
+					</div>
+					<div class="col-sm-3">
+						<br><input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
+					</div>
+			</div>
 			<table class="table table-hover" style="width: 50%">
 				<thead>
 					<tr>
@@ -58,22 +59,25 @@
 
 				</ul>
 			</div>
-	</div>
+		</div>
+		<div ng-view></div>
 			<div class="form-group" id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
-				<form id="formID" ng-submit="save()">
-					<div class="col-sm-6">
-						Model  <input type="text" class="form-control" placeholder="Model" ng-model="addModel" required><br>
+				<form id="formID" ng-submit="save()" name="userForm">
+					<div class="col-sm-3"  ng-class="{ 'has-error' : !checkModel() && !userForm.model.$pristine }">
+						Model  <input type="text"  name="model" class="form-control" placeholder="Model" ng-model="addModel" >
+						<p style="display: inline;" ng-show="!checkModel()" class="help-block">Model is required.</p><br>
 					</div>
-					<div class="col-sm-6">
-						Manufacture Year  <input type="text" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"><br> 
+					<div class="col-sm-3" ng-class="{ 'has-error' : !checkYear() && !userForm.year.$pristine }">
+						Manufacture Year  <input type="number" name="year" min="2009" max="2016" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"> 
+						<p style="display: inline;" ng-show="!checkYear()" class="help-block">Year is required.</p><br>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-3">
 						Brand <select class="form-control" ng-model="addBrand">
 									<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
 							  </select><br> 
 					</div>
-					<div class="col-sm-6">						
+					<div class="col-sm-3">						
 						Memory <select class="form-control" ng-model="addMemory">
 									<option value="16">16</option>
 									<option value="32">32</option>
@@ -96,13 +100,13 @@
 							   <input type="radio" name="color" value="gold" ng-model="addColor"> Gold<br>
 							   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
 					</div>	
-					<div class="col-sm-3">		   
+					<div class="col-sm-offset-9 col-sm-3">		   
 						<input class="form-control" type="button" value="Back" ng-click="back()">
-						<input class="form-control" type="submit"  value="Save">
+						<input class="form-control" type="submit"  value="Save" ng-disabled="!(checkModel&&checkYear())">
 					</div>
 				</form>
 			</div>
-		</div>
+			
 		<div id="d3">
 				bar chart
 				<svg id="bar" class="chart">

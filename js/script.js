@@ -14,11 +14,26 @@ var mobiles = [
 
 				
 var mobileShop = angular
-				.module("shopModule", [])
+				.module("shopModule", ["ngRoute"])
+				.config(function($routeProvider){
+					$routeProvider		
+						.when("/addmobile",{
+							templateUrl: "Templates/addmobile.html",
+							controller: "mobiles"
+						})
+				})
+/*
+				
+				.controller("addmobileController", function($scope){
+					$scope.test = "test";
+				})
+*/
+				
 				.controller("mobiles",function($scope){					
 					$scope.mobiles = mobiles;
 					$scope.showDetails = true;
 					$scope.addScreenStatus = false;
+					$scope.test = "test";
 					// Search 					
 
 					$scope.search = function(){
@@ -55,7 +70,7 @@ var mobileShop = angular
 							brand:$scope.addBrand,
 							model: $scope.addModel,
 							year:$scope.addYear,
-							memory:16,
+							memory:$scope.addMemory,
 							color:$scope.addColor,
 							sim:$scope.addDual ? "Yes" : "No",
 							nfc:$scope.addNfc ? "Yes" : "No",
@@ -67,11 +82,29 @@ var mobileShop = angular
 					
 					$scope.showAddScreen = function(){
 						$scope.addScreenStatus = true;
-					}
+					};
 					
 					$scope.back = function(){
 						$scope.addScreenStatus = false;
-					}
+					};
+					
+					$scope.checkModel = function(){
+						if($scope.addModel == undefined || $scope.addModel == ""){
+							return false;
+						}
+						else{
+							return true;
+						}							
+					};
+					
+					$scope.checkYear = function(){
+						if($scope.addYear == undefined || $scope.addYear == ""){
+							return false;
+						}
+						else{
+							return true;
+						}							
+					};
 				});
 				
 				
