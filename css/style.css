@@ -2,6 +2,7 @@ body{
 	background-color: #e7f6f6;
 	font-family: monospace, sans-serif;
 	padding-left: 10%;
+	padding-right: 10%;
 }
 input,h2{
 	display: inline-block;
@@ -14,11 +15,13 @@ table{
 	margin-top: 70px;
 }
 
+/*
 #addScreen{
 	position: absolute;
 	top : 600px;
 	padding-bottom: 70px;
 }
+*/
 
 #bar{
 	position: absolute;

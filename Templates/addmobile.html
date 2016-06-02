@@ -1,7 +1,7 @@
 
 
 <div class="form-group" id="addScreen" ng-model="addScreen" ng-show="!addScreenStatus">
-				<h2>Add Mobile</h2><br><p>{{ test }}</p>
+				<h2>Add Mobile</h2><br>
 				<form id="formID" ng-submit="save()" name="userForm">
 					<div class="col-sm-3"  ng-class="{ 'has-error' : !checkModel() && !userForm.model.$pristine }">
 						Model  <input type="text"  name="model" class="form-control" placeholder="Model" ng-model="addModel" >
@@ -40,8 +40,8 @@
 							   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
 					</div>	
 					<div class="col-sm-offset-9 col-sm-3">		   
-						<input class="form-control" type="button" value="Back" ng-click="back()">
-						<input class="form-control" type="submit"  value="Save" ng-disabled="!(checkModel&&checkYear())">
+						<a href="#/home"><button  class="form-control" ng-click="back()">Back</button></a>
+						<input class="form-control" type="submit"  value="Save" ng-disabled="!(checkModel&&checkYear())"/>
 					</div>
 				</form>
 			</div>

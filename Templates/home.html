@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html ng-app="shopModule">
-	<head>
-		<title>Mobile Shop</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/d3.min.js"></script>
-		<script src="js/jquery-2.2.3.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/angular.min.js"></script>
-		<script src="js/angular-route.min.js"></script>
-		<script src="js/script.js"></script>
-	</head>
-	<body  ng-controller="mobiles">
-		<h2>Mobile Shop Application</h2> 
-		<a href="#/addmobile"><button class="btn btn-default">New Mobile - Templates</button></a>
-		<a href="#/home"><button id="addNew" class="btn btn-default">Back</button></a>
-<!--
 		<div id="content">	
 			<div class="form-group">
 					<div class="col-sm-3">
@@ -61,57 +43,7 @@
 				</ul>
 			</div>
 		</div>
--->
-		<div ng-view></div>
-<!--
-			<div class="form-group" id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
-				<h2>Add Mobile</h2><br>
-				<form id="formID" ng-submit="save()" name="userForm">
-					<div class="col-sm-3"  ng-class="{ 'has-error' : !checkModel() && !userForm.model.$pristine }">
-						Model  <input type="text"  name="model" class="form-control" placeholder="Model" ng-model="addModel" >
-						<p style="display: inline;" ng-show="!checkModel()" class="help-block">Model is required.</p><br>
-					</div>
-					<div class="col-sm-3" ng-class="{ 'has-error' : !checkYear() && !userForm.year.$pristine }">
-						Manufacture Year  <input type="number" name="year" min="2009" max="2016" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"> 
-						<p style="display: inline;" ng-show="!checkYear()" class="help-block">Year is required.</p><br>
-					</div>
-					<div class="col-sm-3">
-						Brand <select class="form-control" ng-model="addBrand">
-									<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
-							  </select><br> 
-					</div>
-					<div class="col-sm-3">						
-						Memory <select class="form-control" ng-model="addMemory">
-									<option value="16">16</option>
-									<option value="32">32</option>
-									<option value="64">64</option>
-									<option value="128">128</option>
-								</select><br>
-					</div>
-					<div class="col-sm-3">						
-						<input type="checkbox" name="options" value="dual" ng-model="addDual" checked>Dual SIM<br>
-						<input type="checkbox" name="options" value="nfc" ng-model="addNfc" checked>NFC<br>
-						<input type="checkbox" name="options" value="4G" ng-model="add4G" checked>4G<br>
-					</div>
-					<div class="col-sm-3">							
-						Screen <br><input type="radio" name="screen" value="4" ng-model="addScreen" checked> 4"<br>
-							   <input type="radio" name="screen" value="5" ng-model="addScreen"> 5"<br>
-							   <input type="radio" name="screen" value="6" ng-model="addScreen"> 6"<br>
-					</div>
-					<div class="col-sm-3">							
-						Color <br><input type="radio" name="color" value="white" ng-model="addColor" checked> White<br>
-							   <input type="radio" name="color" value="gold" ng-model="addColor"> Gold<br>
-							   <input type="radio" name="color" value="black" ng-model="addColor"> Black<br>
-					</div>	
-					<div class="col-sm-offset-9 col-sm-3">		   
-						<input class="form-control" type="button" value="Back" ng-click="back()">
-						<input class="form-control" type="submit"  value="Save" ng-disabled="!(checkModel&&checkYear())">
-					</div>
-				</form>
-			</div>
--->
-			
-<!--
+		
 		<div id="d3">
 				bar chart
 				<svg id="bar" class="chart">
@@ -270,6 +202,3 @@
 								;
 					</script>		
 			</div>
--->
-	</body>
-</html>

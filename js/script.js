@@ -21,6 +21,11 @@ var mobileShop = angular
 							templateUrl: "Templates/addmobile.html",
 							controller: "mobiles"
 						})
+						
+						.when("/home",{
+							templateUrl: "Templates/home.html",
+							controller: "mobiles"
+						})
 				})
 /*
 				
