@@ -13,8 +13,8 @@
 	</head>
 	<body  ng-controller="mobiles">
 		<h2>Mobile Shop Application</h2> 
-	
-		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
+		<a href="#/addmobile"><button class="btn btn-default">New Mobile - Templates</button></a>
+		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()" disabled/>
 		<div id="content">	
 			<div class="form-group">
 					<div class="col-sm-3">
@@ -60,6 +60,7 @@
 				</ul>
 			</div>
 		</div>
+		<div ng-view></div>
 			<div class="form-group" id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
 				<form id="formID" ng-submit="save()" name="userForm">
@@ -105,7 +106,7 @@
 					</div>
 				</form>
 			</div>
-		</div>
+			
 		<div id="d3">
 				bar chart
 				<svg id="bar" class="chart">

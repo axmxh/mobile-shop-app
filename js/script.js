@@ -14,11 +14,26 @@ var mobiles = [
 
 				
 var mobileShop = angular
-				.module("shopModule", [])
+				.module("shopModule", ["ngRoute"])
+				.config(function($routeProvider){
+					$routeProvider		
+						.when("/addmobile",{
+							templateUrl: "Templates/addmobile.html",
+							controller: "mobiles"
+						})
+				})
+/*
+				
+				.controller("addmobileController", function($scope){
+					$scope.test = "test";
+				})
+*/
+				
 				.controller("mobiles",function($scope){					
 					$scope.mobiles = mobiles;
 					$scope.showDetails = true;
 					$scope.addScreenStatus = false;
+					$scope.test = "test";
 					// Search 					
 
 					$scope.search = function(){
