@@ -55,7 +55,7 @@ var mobileShop = angular
 							brand:$scope.addBrand,
 							model: $scope.addModel,
 							year:$scope.addYear,
-							memory:16,
+							memory:$scope.addMemory,
 							color:$scope.addColor,
 							sim:$scope.addDual ? "Yes" : "No",
 							nfc:$scope.addNfc ? "Yes" : "No",

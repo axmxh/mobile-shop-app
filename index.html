@@ -8,6 +8,7 @@
 		<script src="js/jquery-2.2.3.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 	<body  ng-controller="mobiles">
@@ -15,19 +16,19 @@
 	
 		<input id="addNew" class="btn btn-default" type="button" value="Add New Mobile" ng-click="showAddScreen()"/>
 		<div id="content">	
-		<div class="form-group">
-				<div class="col-sm-3">
-					Model : <input class="form-control" type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
-				</div>
-				<div class="col-sm-3">
-					Brand : <select class="form-control" ng-model="brandSearch.brand" ng-click="clear()">
-								<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
-							</select>
-				</div>
-				<div class="col-sm-3">
-					<br><input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
-				</div>
-		</div>
+			<div class="form-group">
+					<div class="col-sm-3">
+						Model : <input class="form-control" type="text" placeholder="Model Search" ng-model="modelSearch.model"/>
+					</div>
+					<div class="col-sm-3">
+						Brand : <select class="form-control" ng-model="brandSearch.brand" ng-click="clear()">
+									<option ng-repeat="mobile in mobiles | limitTo:5" value="{{ mobile.brand }}">{{ mobile.brand }}</option>
+								</select>
+					</div>
+					<div class="col-sm-3">
+						<br><input class="btn btn-default" type="button" ng-click="search()" value="Search"/>
+					</div>
+			</div>
 			<table class="table table-hover" style="width: 50%">
 				<thead>
 					<tr>
@@ -58,17 +59,17 @@
 
 				</ul>
 			</div>
-	</div>
+		</div>
 			<div class="form-group" id="addScreen" ng-model="addScreen" ng-show="addScreenStatus">
 				<h2>Add Mobile</h2><br>
 				<form id="formID" ng-submit="save()" name="userForm">
-					<div class="col-sm-3"  ng-class="{ 'has-error' : !checkModel() && !userForm.model.$pristine }">
+					<div class="col-sm-3"  ng-class="{ 'has-error' : !checkModel() && !userForm.name.$pristine }">
 						Model  <input type="text"  name="model" class="form-control" placeholder="Model" ng-model="addModel" >
-						<p style="display: inline;" ng-show="!checkModel() && !userForm.model.$pristine" class="help-block">Model is required.</p><br>
+						<p style="display: inline;" ng-show="!checkModel()" class="help-block">Model is required.</p><br>
 					</div>
-					<div class="col-sm-3" ng-class="{ 'has-error' : !checkYear() && !userForm.year.$pristine }">
-						Manufacture Year  <input type="number" name="year" min="2009" max="2016" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"> 
-						<p style="display: inline;" ng-show="!checkYear() && !userForm.year.$pristine" class="help-block">Year is required.</p><br>
+					<div class="col-sm-3" ng-class="{ 'has-error' : !checkYear() && !userForm.name.$pristine }">
+						Manufacture Year  <input type="number" min="2009" max="2016" class="form-control" placeholder="Year" ng-model="addYear" required pattern="\d{4}"> 
+						<p style="display: inline;" ng-show="!checkYear()" class="help-block">Year is required.</p><br>
 					</div>
 					<div class="col-sm-3">
 						Brand <select class="form-control" ng-model="addBrand">
